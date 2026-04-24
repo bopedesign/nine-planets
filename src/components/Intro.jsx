@@ -63,6 +63,8 @@ const QARow = ({ q, a, open, onToggle, i }) => {
   );
 };
 
+import React from 'react';
+
 export default () => {
   const [open, setOpen] = React.useState(0);
   const items = [

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const PortfolioRow = ({ project, i, reverse }) => {
   const [hover, setHover] = React.useState(false);
 
