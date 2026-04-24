@@ -219,9 +219,9 @@ const HomeNav = () => {
       color: 'var(--light)',
     }}>
       {/* Logo */}
-      <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, justifySelf: 'start' }}>
+      <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, justifySelf: 'start' }}>
         <img src="images/logo.png" alt="9 Planets" style={{ height: 64, width: 'auto', display: 'block' }} />
-      </a>
+      </Link>
 
       {/* Menu */}
       <div style={{ display: 'flex', gap: 36, fontSize: 14, fontWeight: 500, justifySelf: 'center' }}>
@@ -236,32 +236,51 @@ const HomeNav = () => {
               onMouseEnter={() => hasDropdown && setOpenMenu(item.label)}
               onMouseLeave={() => hasDropdown && setOpenMenu(null)}
             >
-              <a
-                href={item.href}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  color: isActive ? 'var(--light)' : 'rgba(247,245,243,0.82)',
-                  fontWeight: isActive ? 600 : 400,
-                  paddingBottom: 2,
-                  transition: 'color .15s ease',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-on-dark)')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? 'var(--light)' : 'rgba(247,245,243,0.82)')}
-              >
-                {item.label}
-                {hasDropdown && (
-                  <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style={{
-                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                    transition: 'transform .18s ease',
-                    opacity: 0.85,
-                  }}>
-                    <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" fill="none" />
-                  </svg>
-                )}
-              </a>
-
+              {item.href === '#' ? (
+                <a
+                  href={item.href}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    color: isActive ? 'var(--light)' : 'rgba(247,245,243,0.82)',
+                    fontWeight: isActive ? 600 : 400,
+                    paddingBottom: 2,
+                    transition: 'color .15s ease',
+                    cursor: 'default',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-on-dark)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? 'var(--light)' : 'rgba(247,245,243,0.82)')}
+                >
+                  {item.label}
+                  {hasDropdown && (
+                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style={{
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform .18s ease',
+                      opacity: 0.85,
+                    }}>
+                      <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" fill="none" />
+                    </svg>
+                  )}
+                </a>
+              ) : (
+                <Link
+                  to={item.href}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    color: isActive ? 'var(--light)' : 'rgba(247,245,243,0.82)',
+                    fontWeight: isActive ? 600 : 400,
+                    paddingBottom: 2,
+                    transition: 'color .15s ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-on-dark)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? 'var(--light)' : 'rgba(247,245,243,0.82)')}
+                >
+                  {item.label}
+                </Link>
+              )}
               {hasDropdown && isOpen && (
                 <div style={{
                   position: 'absolute',
@@ -282,29 +301,55 @@ const HomeNav = () => {
                     top: -14, left: 0, right: 0, height: 14,
                   }} />
                   {item.children.map((child) => (
-                    <a
-                      key={child.label}
-                      href={child.href}
-                      style={{
-                        display: 'block',
-                        padding: '12px 20px',
-                        fontSize: 14,
-                        fontWeight: 400,
-                        color: 'rgba(247,245,243,0.85)',
-                        transition: 'background .15s ease, color .15s ease',
-                        whiteSpace: 'nowrap',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                        e.currentTarget.style.color = 'var(--accent-on-dark)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'transparent';
-                        e.currentTarget.style.color = 'rgba(247,245,243,0.85)';
-                      }}
-                    >
-                      {child.label}
-                    </a>
+                    child.href === '#' ? (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        style={{
+                          display: 'block',
+                          padding: '12px 20px',
+                          fontSize: 14,
+                          fontWeight: 400,
+                          color: 'rgba(247,245,243,0.85)',
+                          transition: 'background .15s ease, color .15s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                          e.currentTarget.style.color = 'var(--accent-on-dark)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'transparent';
+                          e.currentTarget.style.color = 'rgba(247,245,243,0.85)';
+                        }}
+                      >
+                        {child.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={child.label}
+                        to={child.href}
+                        style={{
+                          display: 'block',
+                          padding: '12px 20px',
+                          fontSize: 14,
+                          fontWeight: 400,
+                          color: 'rgba(247,245,243,0.85)',
+                          transition: 'background .15s ease, color .15s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                          e.currentTarget.style.color = 'var(--accent-on-dark)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'transparent';
+                          e.currentTarget.style.color = 'rgba(247,245,243,0.85)';
+                        }}
+                      >
+                        {child.label}
+                      </Link>
+                    )
                   ))}
                 </div>
               )}
