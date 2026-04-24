@@ -1,4 +1,4 @@
-const Footer = () => {
+export default () => {
   return (
     <footer style={{ background: 'var(--dark)', color: 'var(--light)', padding: '80px 0 40px' }}>
       <div className="wrap">
@@ -105,5 +105,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-window.Footer = Footer;

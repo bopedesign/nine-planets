@@ -150,7 +150,7 @@ const PortfolioRow = ({ project, i, reverse }) => {
   );
 };
 
-const Portfolio = () => {
+export default () => {
   const projects = [
     {
       name: 'Plums Café',
@@ -229,5 +229,3 @@ const Portfolio = () => {
     </section>
   );
 };
-
-window.Portfolio = Portfolio;

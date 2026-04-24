@@ -2,7 +2,7 @@
    Restructured: emphatic "We'd love to help" is the lead, with the phone
    number as the hero contact method and buttons as alternates. */
 
-const HomeCTA = () => {
+export default () => {
   return (
     <section style={{ background: 'var(--light)', padding: '120px 0' }}>
       <div className="wrap">
@@ -108,5 +108,3 @@ const HomeCTA = () => {
     </section>
   );
 };
-
-window.HomeCTA = HomeCTA;

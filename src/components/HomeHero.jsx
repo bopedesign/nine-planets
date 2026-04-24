@@ -1,4 +1,6 @@
-const HomeHero = () => {
+import { Link } from 'react-router-dom';
+
+export default () => {
   const ctas = [
     { label: 'Get a Quote', sub: 'When you are ready to move' },
     { label: 'Our Process', sub: 'How we make your vision work' },
@@ -189,12 +191,12 @@ const HomeHero = () => {
    Matches the screenshot rather than reusing the Services nav exactly. */
 const HomeNav = () => {
   const items = [
-    { label: 'Home', href: 'Home.html' },
+    { label: 'Home', href: '/' },
     {
       label: 'Services',
       href: '#',
       children: [
-        { label: 'Website Design & Development', href: 'Website Design & Development.html' },
+        { label: 'Website Design & Development', href: '/website-design-development' },
         { label: 'Brand & Identity',             href: '#' },
         { label: 'SEO & Content Strategy',       href: '#' },
         { label: 'Ongoing Support',              href: '#' },
@@ -216,7 +218,7 @@ const HomeNav = () => {
       color: 'var(--light)',
     }}>
       {/* Logo */}
-      <a href="Home.html" style={{ display: 'flex', alignItems: 'center', gap: 10, justifySelf: 'start' }}>
+      <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, justifySelf: 'start' }}>
         <img src="images/logo.png" alt="9 Planets" style={{ height: 64, width: 'auto', display: 'block' }} />
       </a>
 
@@ -334,6 +336,3 @@ const HomeNav = () => {
     </nav>
   );
 };
-
-window.HomeHero = HomeHero;
-window.HomeNav = HomeNav;

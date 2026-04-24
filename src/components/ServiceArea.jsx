@@ -1,4 +1,4 @@
-const ServiceArea = () => {
+export default () => {
   const cities = [
     'Coburg', 'Cottage Grove', 'Creswell', 'Dunes City',
     'Elmira', 'Florence', 'Junction City', 'Lowell',
@@ -113,5 +113,3 @@ const ServiceArea = () => {
     </section>
   );
 };
-
-window.ServiceArea = ServiceArea;

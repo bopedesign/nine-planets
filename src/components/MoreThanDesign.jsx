@@ -1,4 +1,4 @@
-const MoreThanDesign = () => {
+export default () => {
   const pillars = [
     {
       num: '01',
@@ -103,5 +103,3 @@ const MoreThanDesign = () => {
     </section>
   );
 };
-
-window.MoreThanDesign = MoreThanDesign;

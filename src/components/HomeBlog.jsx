@@ -1,7 +1,7 @@
 /* "Recent insights" — blog posts grid on the Home page.
    3-up card grid with placeholder imagery, category eyebrow, title, date. */
 
-const HomeBlog = () => {
+export default () => {
   const posts = [
     {
       category: 'UX',
@@ -155,4 +155,3 @@ const HomeBlog = () => {
   );
 };
 
-window.HomeBlog = HomeBlog;

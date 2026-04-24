@@ -63,7 +63,7 @@ const QARow = ({ q, a, open, onToggle, i }) => {
   );
 };
 
-const Intro = () => {
+export default () => {
   const [open, setOpen] = React.useState(0);
   const items = [
     {
@@ -125,5 +125,3 @@ const Intro = () => {
     </section>
   );
 };
-
-window.Intro = Intro;

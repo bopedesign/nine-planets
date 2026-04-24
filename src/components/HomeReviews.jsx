@@ -7,7 +7,7 @@ const RStar = ({ size = 14, filled = true }) => (
   </svg>
 );
 
-const HomeReviews = () => {
+export default () => {
   const reviews = [
     {
       body: 'They didn\'t just redesign our site — they reshaped how we talk about our business. Inbound leads tripled in the first quarter.',
@@ -88,5 +88,3 @@ const HomeReviews = () => {
     </section>
   );
 };
-
-window.HomeReviews = HomeReviews;

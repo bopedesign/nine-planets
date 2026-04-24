@@ -1,7 +1,7 @@
 /* "What we offer" — services grid section on the Home page.
    2-col header row: title / supporting copy.
    3×2 grid of service cards, each with a background image and text top-left. */
-const HomeServices = () => {
+export default () => {
   const cards = [
     {
       title: 'Website Design & Development',
@@ -315,5 +315,3 @@ const ServiceCard = ({ title, body, bg, art, theme, cta, showArrow = true, varia
     </article>
   );
 };
-
-window.HomeServices = HomeServices;

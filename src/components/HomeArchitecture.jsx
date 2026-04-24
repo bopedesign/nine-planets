@@ -2,7 +2,7 @@
    Layout:
      Row 1: Title (left) + schematic bleeding to the right edge of the viewport
      Row 2: Three-column Q/A grid beneath, with a top rule */
-const HomeArchitecture = () => {
+export default () => {
   const questions = [
     {
       q: 'Can your customers find what they are looking for?',
@@ -273,5 +273,3 @@ const ArchitectureSchematic = () => {
     </svg>
   );
 };
-
-window.HomeArchitecture = HomeArchitecture;

@@ -1,4 +1,4 @@
-const Process = () => {
+export default () => {
   const steps = [
     {
       num: '01',
@@ -220,5 +220,3 @@ const Process = () => {
     </section>
   );
 };
-
-window.Process = Process;

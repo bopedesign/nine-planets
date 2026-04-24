@@ -4,7 +4,7 @@ const Star = ({ size = 14, filled = true }) => (
   </svg>
 );
 
-const Consult = () => {
+export default () => {
   const reviews = [
     {
       body: 'They didn\'t just redesign our site — they reshaped how we talk about our business. Inbound leads tripled in the first quarter.',
@@ -129,5 +129,3 @@ const Consult = () => {
     </section>
   );
 };
-
-window.Consult = Consult;
