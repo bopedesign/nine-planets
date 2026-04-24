@@ -1,0 +1,200 @@
+const PortfolioCard = ({ project, i }) => {
+  const [hover, setHover] = React.useState(false);
+  const isFeature = i === 0;
+
+  return (
+    <a
+      href="#"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        background: project.bg,
+        color: project.textColor,
+        aspectRatio: isFeature ? '16 / 11' : '1 / 1',
+        gridColumn: isFeature ? 'span 2' : 'span 1',
+        position: 'relative',
+        overflow: 'hidden',
+        border: '1px solid var(--rule-light)',
+      }}
+    >
+      {/* Caption block — top of card */}
+      <div style={{
+        padding: isFeature ? '28px 32px 24px' : '24px 24px 20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+        position: 'relative',
+        zIndex: 2,
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: project.muted }}>
+            {project.tag}
+          </div>
+          <div style={{
+            width: 28, height: 28,
+            borderRadius: '50%',
+            border: `1px solid ${project.ruleColor}`,
+            display: 'grid',
+            placeItems: 'center',
+            background: hover ? 'var(--accent)' : 'transparent',
+            borderColor: hover ? 'var(--accent)' : project.ruleColor,
+            color: hover ? 'var(--light)' : project.textColor,
+            transition: 'all .25s',
+            flexShrink: 0,
+          }}>
+            <svg width="11" height="11" viewBox="0 0 11 11">
+              <path d="M3 8L8 3M4 3h4v4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="square" />
+            </svg>
+          </div>
+        </div>
+        <div style={{
+          fontSize: isFeature ? 24 : 20,
+          fontWeight: 500,
+          letterSpacing: '-0.015em',
+          lineHeight: 1.15,
+        }}>{project.name}</div>
+        <div style={{ fontSize: 13, color: project.muted, lineHeight: 1.4 }}>{project.desc}</div>
+      </div>
+
+      {/* Browser mockup — fills the remaining space */}
+      <div style={{
+        flex: 1,
+        position: 'relative',
+        margin: isFeature ? '0 32px' : '0 24px',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'flex-end',
+      }}>
+        <div style={{
+          width: '100%',
+          background: '#fff',
+          borderRadius: '4px 4px 0 0',
+          boxShadow: '0 14px 30px rgba(0,0,0,0.25)',
+          overflow: 'hidden',
+          transform: hover ? 'translateY(-4px)' : 'translateY(0)',
+          transition: 'transform .35s cubic-bezier(.2,.8,.2,1)',
+        }}>
+          {/* Browser chrome */}
+          <div style={{
+            background: '#e8e6e2',
+            padding: '8px 12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+          }}>
+            {['#ff5f57','#ffbd2e','#28c840'].map((c,d) => (
+              <div key={d} style={{ width: 9, height: 9, borderRadius: '50%', background: c }} />
+            ))}
+            <div style={{
+              flex: 1,
+              marginLeft: 14,
+              height: 14,
+              background: '#fff',
+              borderRadius: 2,
+              display: 'flex',
+              alignItems: 'center',
+              paddingLeft: 8,
+              fontSize: 9,
+              color: '#8a8a8a',
+              letterSpacing: '0.02em',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+            }}>
+              {project.url}
+            </div>
+          </div>
+          {/* Screenshot */}
+          <div style={{
+            width: '100%',
+            aspectRatio: '16 / 10',
+            background: `url(${project.image}) center top / cover no-repeat`,
+          }} />
+        </div>
+      </div>
+    </a>
+  );
+};
+
+const Portfolio = () => {
+  const projects = [
+    {
+      name: 'Plums Café',
+      desc: 'Restaurant site · Reservations · Gallery',
+      tag: 'Featured · 2025',
+      url: 'plumscafe.com',
+      image: 'images/plumscafe.jpg',
+      bg: 'var(--dark)',
+      textColor: 'var(--light)',
+      muted: 'rgba(247,245,243,0.7)',
+      ruleColor: 'var(--rule-dark)',
+    },
+    {
+      name: 'NW Youth Corps',
+      desc: 'Nonprofit · Programs · Donate',
+      tag: '2025',
+      url: 'nwyouthcorps.org',
+      image: 'images/nwyouthcorps.jpg',
+      bg: 'var(--light-2)',
+      textColor: 'var(--dark)',
+      muted: 'var(--muted-light)',
+      ruleColor: 'var(--rule-light)',
+    },
+    {
+      name: 'McKenzie Scaffolding',
+      desc: 'Services · Gallery · Contact',
+      tag: '2024',
+      url: 'mckenziescaffolding.com',
+      image: 'images/mckenzie.jpg',
+      bg: 'var(--light-2)',
+      textColor: 'var(--dark)',
+      muted: 'var(--muted-light)',
+      ruleColor: 'var(--rule-light)',
+    },
+  ];
+
+  return (
+    <section style={{ background: 'var(--light-2)', padding: '110px 0' }}>
+      <div className="wrap">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'end', marginBottom: 56 }}>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 22 }}>Recent work</div>
+            <h2 style={{
+              fontSize: 60,
+              lineHeight: 1.02,
+              letterSpacing: '-0.028em',
+              fontWeight: 400,
+              margin: 0,
+              textWrap: 'balance',
+            }}>
+              A few sites we've<br />
+              <span style={{ fontStyle: 'italic', fontWeight: 300 }}>recently</span> shipped.
+            </h2>
+          </div>
+          <div style={{ paddingBottom: 10, display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
+            <a href="#" className="btn btn-outline">
+              <span>Full portfolio</span>
+              <span className="arrow">→</span>
+            </a>
+            <a href="#" className="btn btn-primary">
+              <span>Get a quote</span>
+              <span className="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 20,
+          gridAutoRows: 'auto',
+        }}>
+          {projects.map((p, i) => <PortfolioCard key={i} project={p} i={i} />)}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+window.Portfolio = Portfolio;
