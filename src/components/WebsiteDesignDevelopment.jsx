@@ -62,7 +62,7 @@ const WebsiteDesignDevelopment = () => (
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.12em;
-          text-transform: 'uppercase';
+          text-transform: uppercase;
           color: var(--accent-text);
         }
 
@@ -128,6 +128,35 @@ const WebsiteDesignDevelopment = () => (
         }
       `
     }} />
+    <section style={{
+      background: 'var(--light)',
+      padding: '120px 0',
+      borderBottom: '1px solid var(--rule-light)',
+    }}>
+      <div className="wrap">
+        <div className="eyebrow">Website Design & Development</div>
+        <h1 style={{
+          fontSize: 68,
+          lineHeight: 1.04,
+          letterSpacing: '-0.028em',
+          fontWeight: 400,
+          margin: '16px 0 32px 0',
+          color: 'var(--dark)',
+        }}>
+          Strategy, design, and code<br />
+          that actually work together.
+        </h1>
+        <p style={{
+          fontSize: 18,
+          lineHeight: 1.65,
+          color: 'var(--muted-light)',
+          margin: '0 0 32px 0',
+          maxWidth: 600,
+        }}>
+          We build websites like architects—thinking through how everything connects. The result is a site that works harder for you.
+        </p>
+      </div>
+    </section>
     <Intro />
     <MoreThanDesign />
     <Consult />
